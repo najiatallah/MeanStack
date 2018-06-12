@@ -1,5 +1,6 @@
 import mongoose from 'mongoose';
 import mongoosePaginate from 'mongoose-paginate';
+import uniqueValidator from 'mongoose-unique-validator';
 
 const UserSchema = mongoose.Schema({
     firstName: {
@@ -18,15 +19,15 @@ const UserSchema = mongoose.Schema({
         type: String,
         lowercase: true,
         unique: true,
-        required: true
+        required: "Pleae fill in an email"
     },
-    username: {
-        type: String,
-        unique: 'Username already exists',
-        required: 'Please fill in a username',
-        lowercase: true,
-        trim: true
-    },
+    // username: {
+    //     type: String,
+    //     unique: 'Username already exists',
+    //     required: 'Please fill in a username',
+    //     lowercase: true,
+    //     trim: true
+    // },
     password: {
         type: String,
         default: ''
@@ -58,4 +59,5 @@ const UserSchema = mongoose.Schema({
 });
 
 UserSchema.plugin(mongoosePaginate);
+UserSchema.plugin(uniqueValidator);
 export const User = mongoose.model('User', UserSchema);

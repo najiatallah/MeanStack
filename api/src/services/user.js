@@ -9,13 +9,10 @@ export default class UserService {
         const myUser = new User({
             firstName: userObj.firstName,
             lastName: userObj.lastName,
-            email: userObj.email,
-            username: userObj.username
+            email: userObj.email
         });
         try {
-            const alreadyExist = await User.findOne({
-                username: userObj.username
-            });
+            const alreadyExist = await User.findOne({ username: userObj.email });
             myUser.password = await this.hashPassword(userObj.password);
             const item = await myUser.save();
             return item;
