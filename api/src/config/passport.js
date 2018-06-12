@@ -16,7 +16,6 @@ const localOpts = {
 const localLogin = new LocalStrategy(localOpts, async (email, password, done) => {
     try {
         const result = await UserService.authenticate(email, password);
-
         if (result.status == 200) {
             return done(null, result.user);
         } else {
@@ -47,7 +46,6 @@ const jwtLogin = new JwtStrategy(jwtOpts, async (payload, done) => {
         return done(error, false);
     }
 });
-
 
 passport.use(jwtLogin);
 passport.use(localLogin);

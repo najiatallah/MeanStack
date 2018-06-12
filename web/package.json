@@ -1,6 +1,6 @@
 {
-  "name": "apex",
-  "version": "4.1.0",
+  "name": "agent-stack",
+  "version": "1.0.0",
   "license": "",
   "scripts": {
     "ng": "ng",

@@ -37,7 +37,6 @@ export default class UserController {
     }
 
     static async getUserById(req, res, next) {
-
         const id = req.params.id;
         try {
             const user = await UserService.getUserById(id);
@@ -55,14 +54,12 @@ export default class UserController {
     }
 
     static async login(req, res, next) {
-
         if (req.user == "error"){
             return res.status(200).json({
                 status: 400,
                 message: req.authInfo.message
             });
         }
-
         const token = await UserService.generateToken(req.user);
         return res.status(200).json({
             status:200,

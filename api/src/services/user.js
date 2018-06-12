@@ -6,14 +6,12 @@ import jwt from 'jsonwebtoken';
 export default class UserService {
 
     static async register(userObj) {
-
         const myUser = new User({
             firstName: userObj.firstName,
             lastName: userObj.lastName,
             email: userObj.email,
             username: userObj.username
         });
-
         try {
             const alreadyExist = await User.findOne({
                 username: userObj.username
@@ -24,20 +22,14 @@ export default class UserService {
         } catch (e) {
             throw Error(`Error while Creating a User: ${e}`);
         }
-
     }
 
     static async authenticate(email, password) {
-
-
-
         let result = {
             status:null,
             user:null,
             message:null
         };
-
-
         try{
             const user = await this.getUserByEmail(email);
 
@@ -63,7 +55,6 @@ export default class UserService {
     }
 
     static async getUsers(query, page, limit) {
-
         const options = {
             page,
             limit

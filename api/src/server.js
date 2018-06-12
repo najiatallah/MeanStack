@@ -8,6 +8,7 @@ import mongoose from 'mongoose';
 import bluebird from 'bluebird';
 import config from './config/development';
 import routes from './routes';
+import morgan from 'morgan';
 
 
 /* --------------- Mongo DB --------------- */
@@ -37,6 +38,9 @@ const port = process.env.PORT || 3000;
 // Body Parser Middleware
 app.use(bodyParser.json());
 
+// Log requests to terminal
+app.use(morgan('dev'));
+
 // CORS Middleware
 app.use(cors());
 
@@ -50,9 +54,6 @@ app.use('/api', routes);
 app.get('/', (req, res) => {
     res.send('Invalid endpoint -- use /api ');
 });
-
-// const users = require('./routes/users');
-// require('./config/passport')(passport);
 
 // Start Server
 app.listen(port, () => {
