@@ -4,6 +4,9 @@
 .vscode/*
 !.vscode/launch.json
 
+# output
+public
+
 
 # dependencies
 node_modules
