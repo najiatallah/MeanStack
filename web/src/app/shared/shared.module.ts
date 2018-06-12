@@ -7,7 +7,6 @@ import { RouterModule } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ToggleFullscreenDirective } from './directives/toggle-fullscreen.directive';
-import { MatchHeightDirective } from './directives/match-height.directive';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 

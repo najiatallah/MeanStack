@@ -4,7 +4,6 @@ import { FullLayoutComponent } from './layouts/full/full-layout.component';
 import { ContentLayoutComponent } from './layouts/content/content-layout.component';
 import { CONTENT_ROUTES } from './shared/routes/content-layout.routes';
 import { FULL_ROUTES } from './shared/routes/full-layout.routes';
-import { DashboardComponent } from './dashboard/dashboard.component';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
