@@ -1,0 +1,52 @@
+<div class="container">
+  <div class="row justify-content-md-center">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title">Register New User</h4>
+        </div>
+        <div class="card-body">
+          <div class="px-3">
+            <form class="form" (ngSubmit)="onSubmit()" #f="ngForm">
+              <div class="form-body">
+
+                <div class="form-group">
+                  <label for="firstName">First Name</label>
+                  <div class="position-relative has-icon-right">
+                    <input type="text" class="form-control" id="firstName" name="firstName" ngModel required #firstName="ngModel" [ngModelOptions]="{updateOn: 'blur'}">
+                    <small class="form-text text-muted danger" *ngIf="!firstName.valid && (firstName.dirty || firstName.touched)">First Name is required!</small>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="lastName">Last Name</label>
+                  <input type="text" class="form-control" id="lastName" name="lastName" ngModel required #lastName="ngModel" [ngModelOptions]="{updateOn: 'blur'}">
+                  <small class="form-text text-muted danger" *ngIf="!lastName.valid && (lastName.dirty || lastName.touched)">Last Name is required!</small>
+                </div>
+                <div class="form-group">
+                  <label for="floatEmail">Email</label>
+                  <input type="email" class="form-control" id="floatEmail" name="floatEmail" ngModel required email #floatEmail="ngModel" [ngModelOptions]="{updateOn: 'blur'}">
+                  <small class="form-text text-muted danger" *ngIf="!floatEmail.valid && (floatEmail.dirty || floatEmail.touched)">Please enter a valid email!</small>
+                </div>
+                <div class="form-group">
+                  <label for="floatPassword">Password</label>
+                  <input type="password" class="form-control" id="floatPassword" name="floatPassword" ngModel required minlength="4" maxlength="24"
+                    [ngModelOptions]="{updateOn: 'blur'}" #floatPassword="ngModel">
+                  <small class="form-text text-muted danger" *ngIf="!floatPassword.valid && (floatPassword.dirty || floatPassword.touched)">Password characters length must be between 4 and 24 !</small>
+                </div>
+              </div>
+              <div class="form-actions center">
+                <button type="button" class="btn btn-raised btn-warning mr-1">
+                  <i class="ft-x"></i> Cancel
+                </button>
+                <button type="submit" class="btn btn-raised btn-primary" [disabled]="!f.valid">
+                  <i class="fa fa-check-square-o"></i> Submit
+                </button>
+              </div>
+
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
