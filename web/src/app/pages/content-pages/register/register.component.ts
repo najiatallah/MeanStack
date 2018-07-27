@@ -23,15 +23,15 @@ export class RegisterComponent implements OnInit {
     const floatEmail = this.registerForm.value.floatEmail;
     const floatPassword = this.registerForm.value.floatPassword;
 
-    this.authService.registerUser(firstName, lastName, floatEmail, floatPassword)
-      .subscribe(
-        data => {
-          console.log(data);
-        },
-        error => {
-          console.log(`error is : ${error}`);
-        });
-  }
+  //   this.authService.registerUser(firstName, lastName, floatEmail, floatPassword)
+  //     .subscribe(
+  //       data => {
+  //         console.log(data);
+  //       },
+  //       error => {
+  //         console.log(`error is : ${error}`);
+  //       });
+   }
 
 
 }
